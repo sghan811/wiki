@@ -9,6 +9,9 @@ module.exports = [
       regexp: /^\S*$/,
       regexpMessage: 'title cannot have spaces'
     }, {
+      key: 'sub',
+      type: 'string'
+    }, {
       key: 'contant',
       type: 'string'
     }, {
@@ -17,6 +20,10 @@ module.exports = [
     }, {
         key: 'uploader',
         type: 'string'
+    }, {
+      key: 'uptime',
+      type: 'string',
+      optional: true
     }
   ]
   

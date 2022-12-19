@@ -1,4 +1,4 @@
-const {Post, I_load} = require('./Post');
+const {Post, I_load, vPost} = require('./Post');
 
 module.exports = {
     create: (req, res, next) => {
@@ -23,6 +23,15 @@ module.exports = {
     index_load: async(req, res, next) => {
         try {
             res.locals.data.posts = await I_load()
+            next()
+        } catch (err) {
+            next(err)
+        }
+    },
+    View_post: async(req, res, next) => {
+        try {
+            res.locals.data.posts = await vPost(req)
+            console.log(res.locals.data.posts)
             next()
         } catch (err) {
             next(err)
