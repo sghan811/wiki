@@ -23,22 +23,29 @@
       </div>
     </div>
   </div> -->
-
-  <div class="posts">
-    <Card v-for="item in posts" :timestamp="item.uptime" :title=item.title :sub=item.sub :img="item.img" :id="item.id"/>
+  <div class="news">
+    <div class="headline">
+      <headline id="1"></headline>
+    </div>
+    <div class="posts">
+      <Card v-for="item in posts" :timestamp="item.uptime" :title=item.title :sub=item.sub :img="item.img" :id="item.id"/>
+    </div>
   </div>
+
 
 </template>
 
 <script>
 import Nav from '../components/Nav.vue'
 import Card from '../components/Card.vue'
+import headline from '../components/headline.vue'
 import axios from 'axios'
 export default {
   name: 'Index',
   components: {
     Nav,
-    Card
+    Card,
+    headline
   },  
   data() {
     return {
@@ -51,7 +58,6 @@ export default {
   },
   async mounted() {
     this.posts = (await axios.get('/api/v1/post/')).data;
-    console.log((await axios.get('/api/v1/post/')).data)
     this.load()
   },
   methods: {
@@ -67,8 +73,19 @@ export default {
 </script>
 
 <style>
+.news{
+  width: 90%;
+  display: flex;
+  justify-content: left;
+}
+.headline{
+  margin-top: 25px;
+  width: 70%;
+  margin-left: 3%;
+  margin-right: 5%;
+}
 .posts {
-  padding: 80px 30%;
+  margin-top: 25px;
 }
 
 .posts > div {
@@ -118,4 +135,5 @@ export default {
 .post:last-child {
   margin-bottom: 0;
 }
+
 </style>

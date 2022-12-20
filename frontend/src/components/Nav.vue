@@ -70,7 +70,7 @@ ul{
 header {
     font-family: 'DM Serif Display', serif;
     backdrop-filter: saturate(200%) blur(10px);
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255,250,250, 0.8);
     font-weight: 100;
     top: 0;
     position: sticky;

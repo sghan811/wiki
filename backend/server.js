@@ -7,13 +7,14 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const cors = require('cors');
+const helmet = require('helmet')
 const corsOptions = {
     Credential: "true",
 };
 
 const app = express();
 
-app.use(logger('dev'))
+app.use(helmet())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json());

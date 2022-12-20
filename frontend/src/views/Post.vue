@@ -35,13 +35,10 @@ export default {
         async pView() {
             console.log(this.id)
             await axios.get('/api/v1/post/view?id='+this.id).then((res)=> {
-                console.log(res.data.posts[0])
                 this.title = res.data.posts[0].title
                 this.sub = res.data.posts[0].sub
                 this.contant = res.data.posts[0].contant
                 this.uploader = res.data.posts[0].uploader
-                this.uptime = res.data.posts[0].uptime
-                console.log(res.data.posts[0].title)
             })
         }   
     }
