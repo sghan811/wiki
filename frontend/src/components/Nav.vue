@@ -1,6 +1,6 @@
 <template>
   <header>
-    <span>Discord News</span>
+    <router-link to="/" class="title">Discord News</router-link>
   </header>
 </template>
 
@@ -11,6 +11,10 @@ export default {
 </script>
 
 <style>
+.title{
+  color:black;
+  text-decoration: none;
+}
 header {
     font-family: 'DM Serif Display', serif;
     backdrop-filter: saturate(200%) blur(10px);

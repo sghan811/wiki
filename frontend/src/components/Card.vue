@@ -11,7 +11,7 @@
       <span class="timestamp">{{ timestamp }}</span>
       <h2>{{ title }}</h2>
       <p>{{ sub }}</p>
-      <a href="/" @click="view">더 알아보기 ></a>
+      <router-link :to="'/detail/?id='+this.id">더 알아보기</router-link>
     </div>
     <img :src="img">
   </div>
@@ -36,7 +36,7 @@ export default {
   methods: {
     view() {
       this.$router.push({
-        path:'detail',
+        path:'./detail',
         query: this.id
       })
     }

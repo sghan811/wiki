@@ -1,14 +1,15 @@
 <template>
-  <Index />
+  <Nav />
+  <RouterView></RouterView>
 </template>
 
 <script>
-import Index from './views/Index.vue'
+import Nav from './components/Nav.vue'
 
 export default {
   name: 'App',
   components: {
-    Index
+    Nav
   }
 }
 </script>

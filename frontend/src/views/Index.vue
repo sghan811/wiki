@@ -1,6 +1,4 @@
 <template>
-  <Nav />
-
   <!-- <div class="posts">
     <div class="post">
       <div class="texts">
@@ -27,7 +25,7 @@
   </div> -->
 
   <div class="posts">
-    <Card v-for="item in posts" :timestamp="item.uptime" :title=item.title :sub=item.sub :img="item.img" />
+    <Card v-for="item in posts" :timestamp="item.uptime" :title=item.title :sub=item.sub :img="item.img" :id="item.id"/>
   </div>
 
 </template>
@@ -47,8 +45,8 @@ export default {
       requestData: {},
       posts: [
       ],
-      id: this.$route.query.id,
-      title: this.$route.query.title
+      id: this.$route.params.id,
+      title: this.$route.params.title
     }
   },
   async mounted() {

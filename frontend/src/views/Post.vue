@@ -1,8 +1,5 @@
 <template>
-    <Nav />
-
     <h1>{{ title }}</h1>
-    <h2>{{ contant }}</h2>
 </template>
 
 <script>
@@ -17,7 +14,7 @@ export default {
     },
     data() {
         return {
-            id: this.$route.query,
+            id: this.$route.query.id,
             title: '',
             sub: '',
             contant: '',
@@ -30,14 +27,17 @@ export default {
     },
     methods: {
         async pView() {
-            await axios.get('/api/v1/posts/view?id='+this.id).then((res)=> {
-                this.title = res.data.title
-                this.sub = res.data.sub
-                this.contant = res.data.contant
-                this.uploader = res.data.uploader
-                this.uptime = res.data.uptime
+            console.log(this.id)
+            await axios.get('http://localhost:3000/api/v1/post/view?id='+this.id).then((res)=> {
+                console.log(res.data.posts[0])
+                this.title = res.data.posts[0].title
+                this.sub = res.data.posts[0].sub
+                this.contant = res.data.posts[0].contant
+                this.uploader = res.data.posts[0].uploader
+                this.uptime = res.data.posts[0].uptime
+                console.log(res.data.posts[0].title)
             })
-        }
+        }   
     }
 }
 
