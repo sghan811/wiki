@@ -13,7 +13,7 @@
       <p>{{ sub }}</p>
       <router-link :to="'/detail/?id='+this.id">더 알아보기</router-link>
     </div>
-    <img :src="img">
+    <img :src="img" class="img">
   </div>
 </template>
 
@@ -63,7 +63,6 @@ export default {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
   }
-
   .posts {
   padding: 80px 30%;
 }
@@ -90,7 +89,7 @@ export default {
 }
 
 .post img {
-  margin-left: 20px;
+  margin-left: auto;
   border-radius: 30px;
   width: 250px;
 }

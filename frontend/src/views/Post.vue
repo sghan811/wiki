@@ -1,5 +1,11 @@
 <template>
-    <h1>{{ title }}</h1>
+    <diV class="post">
+        <div class="content">
+            <h1>{{ title }}</h1>
+            <h2>{{ contant }}</h2>
+        </div>
+    </diV>
+    
 </template>
 
 <script>
@@ -28,7 +34,7 @@ export default {
     methods: {
         async pView() {
             console.log(this.id)
-            await axios.get('http://localhost:3000/api/v1/post/view?id='+this.id).then((res)=> {
+            await axios.get('/api/v1/post/view?id='+this.id).then((res)=> {
                 console.log(res.data.posts[0])
                 this.title = res.data.posts[0].title
                 this.sub = res.data.posts[0].sub
@@ -44,7 +50,12 @@ export default {
 </script>
 
 <style>
-
-
-
+    .post{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .content{
+        width: 40%;
+    }
 </style>

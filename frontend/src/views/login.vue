@@ -36,7 +36,7 @@ export default {
       saveData.password = this.memberPassword;
 
       try {
-        axios.post("http://localhost:3000/api/v1/user/login", JSON.stringify(saveData), {
+        axios.post("/api/v1/user/login", JSON.stringify(saveData), {
             headers: {
               "Content-Type": `application/json`,
             },
