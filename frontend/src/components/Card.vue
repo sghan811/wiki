@@ -8,7 +8,7 @@
   </div> -->
   <div class="post">
     <div class="texts">
-      <span class="timestamp">{{ timestamp }}</span>
+      <span class="timestamp">{{ uptime}}</span>
       <h2>{{ title }}</h2>
       <p>{{ sub }}</p>
       <router-link :to="'/detail/?id='+this.id">더 알아보기</router-link>

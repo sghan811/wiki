@@ -28,7 +28,7 @@
       <headline id="1"></headline>
     </div>
     <div class="posts">
-      <Card v-for="item in posts" :timestamp="item.uptime" :title=item.title :sub=item.sub :img="item.img" :id="item.id"/>
+      <Card v-for="item in posts" :uptime="item.uptime" :title=item.title :sub=item.sub :img="item.img" :id="item.id"/>
     </div>
   </div>
 

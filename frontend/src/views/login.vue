@@ -1,6 +1,6 @@
 <template>
 	<div class="login">
-		<h1>This is an Login page</h1>
+		<h1>Login</h1>
 		<form class="loginform">
 			<p>
 				<label for="memberIdInput">아이디</label>
@@ -27,7 +27,17 @@ export default {
     return {
       userId: null,
       userPassword: null,
+      isHidden: true,
     };
+  },
+  props: {
+    id: Number,
+    title: String,
+    sub: String,
+    contant: String,
+    img: String,
+    uploader: String,
+    uptime: String
   },
   methods: {
     loginSubmit() {
@@ -43,9 +53,10 @@ export default {
           })
           .then((res) => {
             if (res.status === 200) {
-                this.$router.push({
-                    path: "/"
-                })
+              this.$router.push({
+                 path: "/",
+                 query: this.isHidden
+              })
             }
           });
       } catch (error) {

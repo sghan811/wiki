@@ -15,17 +15,9 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
-
-@font-face {
-  font-family: 'Anton';
-  src: url('./Anton/Anton-Regular.ttf') format('Anton');
-  font-weight: normal;
-  font-style: normal;
-}
 
 body {
   margin: 0;
-  font-family: 'Anton';
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 </style>
