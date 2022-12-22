@@ -3,6 +3,7 @@
     <div class="title" :key="isHidden">
       <router-link to="/" class="main">Discord Wiki</router-link>  
       <router-link v-if:="!isHidden" to="/login" class="login-button" >login</router-link>
+      <router-link v-if:="isHidden" to="/write" class="login-button2" >글 작성</router-link>
       <router-link @click="logout()" v-if:="isHidden" to="/" class="login-button">logout</router-link>
     </div>
     
@@ -63,6 +64,16 @@ export default {
 .main{
   color:black;
   font-size: 2.2rem;
+  text-decoration: none;
+}
+.login-button2{
+  border-color:black;
+  border: 2px inset black;
+  right: 60px;
+  position:absolute;
+  font-size: 20px;
+  align-self: center;
+  color:black;
   text-decoration: none;
 }
 .title{

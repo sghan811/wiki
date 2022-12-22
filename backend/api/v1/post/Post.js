@@ -37,7 +37,7 @@ Post.prototype.save = function() {
 }
 
 function I_load() {
-    const posts = db.query(`SELECT * FROM posts LIMIT 10;`)
+    const posts = db.query(`SELECT * FROM posts LIMIT 20;`)
     return posts
 }
 function vPost(req) {
