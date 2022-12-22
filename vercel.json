@@ -1,4 +1,5 @@
 {
     "public": true,
+    "buildcommand": "npm run setting",
     "devCommand": "npm run dev"
 }
