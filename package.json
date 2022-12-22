@@ -16,6 +16,10 @@
     "type": "git",
     "url": "git+https://github.com/sghan811/wiki.git"
   },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
