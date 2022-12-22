@@ -8,7 +8,7 @@
     "backend": "cd /backend && npm start",
     "frontend":"cd /frontend && yarn serve",
     "backend-build": "cd backend && npm i",
-    "frontend-build":"cd frontend && yarn add",
+    "frontend-build":"cd frontend && yarn serve",
     "build": "npm i &&concurrently \"npm run backend-build\"  \"npm run frontend-build\"",
     "dev": "concurrently \"npm run backend\"  \"npm run frontend\""
   },
