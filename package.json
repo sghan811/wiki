@@ -10,7 +10,7 @@
     "backend-build": "cd ./backend && npm i",
     "frontend-build": "cd ./frontend && yarn install",
     "setting": "npm i &&concurrently \"npm run backend-build\"  \"npm run frontend-build\"",
-    "dev": "concurrently \"npm run backend\"  \"npm run frontend\""
+    "start": "concurrently \"npm run backend\"  \"npm run frontend\""
   },
   "repository": {
     "type": "git",
