@@ -63,7 +63,7 @@ export default {
 <style>
 .main{
   color:black;
-  font-size: 2.2rem;
+  font-size: 3rem;
   text-decoration: none;
 }
 .login-button2{
@@ -78,6 +78,7 @@ export default {
 }
 .title{
   width: 100%;
+  font-size: 5%;
   display: flex;
   justify-content: center;
   color:black;
@@ -85,12 +86,13 @@ export default {
   z-index: 1;
 }
 li {
-  font-size: 25px;
+  font-size: 2rem;
 }
 ul{
    list-style:none;
 }
 .nav {
+  padding-bottom: 2vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -107,10 +109,11 @@ ul{
   text-decoration: none;
 }
 .navbar-nav{
-  align-items: center;
   display: flex;
   justify-content: space-between;  
   padding:0;
+  right: 50%;
+  left: 50%;
   width: 40%;
 }
 header {
@@ -121,11 +124,38 @@ header {
     top: 0;
     position: sticky;
     z-index: 100;
-    width: 100%;
+    width: 100vw;
     padding-top: 20px;
     border-bottom-style: solid;
     border-bottom-color: rgba(0, 0, 0, 0.171);
     border-bottom-width: 1px;
-    font-size: 32px;
+}
+@media only screen and (max-width: 500px) {
+  .main{
+    font-size: 2rem;
+    margin-right: 2%;
+  }
+  .login-button{
+    position: static;
+    font-size: 1rem;
+  }
+  .login-button2{
+    margin-right: 2%;
+    font-size: 1rem;
+    position: static;
+  }
+  .title{
+    position: static;
+  }
+  .nav{
+    padding-bottom: 2rem;
+    padding-top: 3%;
+  }
+  li {
+    font-size: 1rem;
+  }
+  .navbar-nav{
+    width: 80%;
+  }
 }
 </style>

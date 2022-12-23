@@ -135,5 +135,12 @@ export default {
 .post:last-child {
   margin-bottom: 0;
 }
-
+@media only screen and (max-width: 500px) {
+  .headline{
+    width:100%;
+  }
+  .news{
+    display: inline;
+  }
+}
 </style>

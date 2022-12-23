@@ -73,11 +73,17 @@ export default {
 </script>
 
 <style scoped>
-.login { width:800px; margin:20px auto; }
+.login { width:100%; margin:20px auto; }
 .loginform { width:400px; margin:auto; }
 .loginform p > label { display:inline-block; width:100px; font-size:14px; padding-right:10px; }
 .loginform p > .input_text { width:200px; font-size:14px; height:32px; }
 .buttons { position:relative; height:32px; margin-top:20px; }
 .buttons > .button { overflow:visible; cursor:pointer; min-width:125px; height:32px; margin:0 2px; padding:0 15px; line-height:32px; font-size:14px; border:1px solid #dfdfdf; background:#fff; border-radius:10px; }
 .buttons > .button.blue { color:#fff; border-color:#0099d2 !important; background:#0099d2 !important; }
+@media only screen and (max-width: 500px) {
+  h1{
+    font-size:2rem;
+  }
+  .loginform p > label { display:inline-block; width:100px; font-size:14px; padding-right:10px; }
+}
 </style>

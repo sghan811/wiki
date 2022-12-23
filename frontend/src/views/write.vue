@@ -2,8 +2,7 @@
 	<div>
 		<h1>게시판 등록</h1>
 		<div class="AddWrap">
-			<form>
-				<table class="tbAdd">
+			<table class="tbAdd">
 					<colgroup>
 						<col width="15%" />
 						<col width="*" />
@@ -14,7 +13,7 @@
 					</tr>
                     <tr>
 						<th>말머리</th>
-						<td><textarea v-model="sub" ref="sub"></textarea></td>
+						<td><input v-model="sub" ref="sub"/></td>
 					</tr>
 					<tr>
 						<th>내용</th>
@@ -25,7 +24,6 @@
 						<td><textarea v-model="img" ref="img"></textarea></td>
 					</tr>
 				</table>
-			</form>
 		</div>
 
 		<div class="btnWrap">
@@ -103,7 +101,20 @@ export default {
 </script>
 
 <style>
-	.tbAdd{border-top:1px solid #888;}
+	.write{
+		width: 100%;
+		align-items: center;
+		justify-content: center;
+	}
+	h1{
+		text-align: center;
+	}
+	.AddWrap{
+		width:100%;
+		display: flex;
+		justify-content: center;
+	}
+	.tbAdd{border-top:1px solid #888;width: 80%;}
 	.tbAdd th, .tbAdd td{border-bottom:1px solid #eee; padding:5px 0;}
 	.tbAdd td{padding:10px 10px; box-sizing:border-box;}
 	.tbAdd td input{width:100%; min-height:30px; box-sizing:border-box; padding:0 10px;}

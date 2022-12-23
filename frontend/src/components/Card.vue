@@ -114,4 +114,14 @@ export default {
 .post:last-child {
   margin-bottom: 0;
 }
+@media only screen and (max-width: 500px) {
+  .posts {
+    padding: 80px 5%;
+  }
+  .post img {
+    margin-left: auto;
+    border-radius: 30px;
+    width: 50%;
+  }
+}
 </style>
