@@ -16,13 +16,19 @@ export default {
 
 <style>
 *{
-  -webkit-text-size-adjust : 5%;  /* 크롬, 사파리, 오페라(신) */
+  -webkit-text-size-adjust : auto;  /* 크롬, 사파리, 오페라(신) */
   -ms-text-size-adjust : auto;  /* IE */
   -moz-text-size-adjust : auto;  /* 파이어폭스 */
   -o-text-size-adjust : auto;  /* 오페라(구)*/
+  font-family: 'noto sans';
 }
-body {
-  margin: 0;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+@font-face {
+  font-family: 'noto sans';
+  src: url('./Noto_Sans_KR/NotoSansKR-Bold.otf');
 }
+a{
+  color:black;
+  text-decoration: none;
+}
+body{margin: 0;}
 </style>

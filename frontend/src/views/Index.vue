@@ -25,7 +25,7 @@
   </div> -->
   <div class="news">
     <div class="headline">
-      <headline id="1"></headline>
+      <headline id="5"></headline>
     </div>
     <div class="posts">
       <Card v-for="item in posts" :uptime="item.uptime" :title=item.title :sub=item.sub :img="item.img" :id="item.id"/>
@@ -74,15 +74,14 @@ export default {
 
 <style>
 .news{
-  width: 90%;
+  width: 80%;
   display: flex;
-  justify-content: left;
+  margin: 0 auto;
 }
 .headline{
   margin-top: 25px;
   width: 70%;
-  margin-left: 3%;
-  margin-right: 5%;
+  margin-right: 20%;
 }
 .posts {
   margin-top: 25px;
@@ -138,6 +137,7 @@ export default {
 @media only screen and (max-width: 500px) {
   .headline{
     width:100%;
+    height: 200px;
   }
   .news{
     display: inline;

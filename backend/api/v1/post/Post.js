@@ -2,7 +2,7 @@ const db = require('../../../db/config');
 const { modelUtils, modelStatics } = require('../utils');
 const schema = require('./PostSchema');
 
-function Post({id=null, title, contant, img, uploader, sub, uptime}){
+function Post({id=null, title, contant, img, uploader, sub, uptime, category}){
     this.id = this._validate(id, 'id');
     this.sub = this._validate(sub,'sub');
     this.uptime = this._validate(uptime,'uptime')
@@ -10,6 +10,7 @@ function Post({id=null, title, contant, img, uploader, sub, uptime}){
     this.contant = this._validate(contant, 'contant');
     this.img = this._validate(img, 'img');
     this.uploader = this._validate(uploader, 'uploader');
+    this.category = this._validate(category, 'category')
 }
 
 const postStatics = modelStatics(db, 'posts');
@@ -27,9 +28,9 @@ Post.prototype = Object.assign(Post.prototype, modelUtils(schema));
 Post.prototype.save = function() {
     return db.one(`
         INSERT INTO posts (
-            title, contant, img, uploader, sub, uptime
+            title, contant, img, uploader, sub, uptime, category
         ) VALUES (
-            $/title/, $/contant/, $/img/, $/uploader/, $/sub/, ${Date.now()}
+            $/title/, $/contant/, $/img/, $/uploader/, $/sub/, ${Date.now()}, $/category/
         )
         RETURNING *
     `, this)
@@ -45,5 +46,9 @@ function vPost(req) {
     console.log(req.query.id)
     return posts
 }
+function newsPost(req) {
+    const posts = db.query(`SELECT * FROM posts where category=${req.query.c};`)
+    return posts
+}
 
-module.exports = {Post, I_load, vPost};
+module.exports = {Post, I_load, vPost, newsPost};

@@ -3,6 +3,10 @@ import PageHome from '@/views/Index'
 import Viewpost from '@/views/Post'
 import Loginpage from '@/views/login'
 import writepage from '@/views/write'
+import newspage from '@/views/news'
+import serverspage from '@/views/servers'
+import eventspage from '@/views/events'
+import issuespage from '@/views/issues'
 
 const routes = [
   {
@@ -20,6 +24,22 @@ const routes = [
   {
     path: '/write',
     component: writepage
+  },
+  {
+    path: '/news',
+    component: newspage
+  },
+  {
+    path: '/servers',
+    component: serverspage
+  },
+  {
+    path: '/events',
+    component: eventspage
+  },
+  {
+    path: '/issues',
+    component: issuespage
   }
   // },
   // {

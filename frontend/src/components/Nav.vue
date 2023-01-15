@@ -11,12 +11,10 @@
       <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <div class="nav">
           <ul class="navbar-nav">
-           <li>hmm</li>
-           <li>sus</li>
-           <li>hmm</li>
-           <li>sus</li>
-           <li>hmm</li>
-           <li>sus</li>
+            <li><router-link to='/' class="category">속보</router-link></li>
+            <li><router-link to='/servers' class="category">서버</router-link></li>
+            <li><router-link to='/events' class="category">이벤트</router-link></li>
+            <li><router-link to='/issues' class="category">사건</router-link></li>
           </ul>
         </div>
       </nav>
@@ -69,7 +67,7 @@ export default {
 .login-button2{
   border-color:black;
   border: 2px inset black;
-  right: 60px;
+  right: 6rem;
   position:absolute;
   font-size: 20px;
   align-self: center;
@@ -88,11 +86,15 @@ export default {
 li {
   font-size: 2rem;
 }
+.category {
+  font-size: 2rem;
+  color:black;
+  text-decoration: none;
+}
 ul{
    list-style:none;
 }
 .nav {
-  padding-bottom: 2vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -101,7 +103,7 @@ ul{
 .login-button{
   border-color:black;
   border: 2px inset black;
-  right: 0;
+  right: 1rem;
   position:absolute;
   font-size: 20px;
   align-self: center;
@@ -109,6 +111,9 @@ ul{
   text-decoration: none;
 }
 .navbar-nav{
+  margin: 0 auto;
+  margin-top:3vh;
+  margin-bottom:1vh;
   display: flex;
   justify-content: space-between;  
   padding:0;
@@ -124,18 +129,27 @@ header {
     top: 0;
     position: sticky;
     z-index: 100;
-    width: 100vw;
+    width: 80vw;
+    margin: 0 auto;
     padding-top: 20px;
     border-bottom-style: solid;
-    border-bottom-color: rgba(0, 0, 0, 0.171);
-    border-bottom-width: 1px;
+    border-bottom-color: black;
+    border-bottom-width: 3px;
 }
 @media only screen and (max-width: 500px) {
+  .category{
+    font-size: 1.5rem;
+  }
+  header{
+    width: 100vw;
+    margin: 0px;
+  }
   .main{
     font-size: 2rem;
     margin-right: 2%;
   }
   .login-button{
+    left: 0px;
     position: static;
     font-size: 1rem;
   }

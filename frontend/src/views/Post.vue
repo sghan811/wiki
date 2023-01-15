@@ -2,7 +2,7 @@
     <diV class="post">
         <div class="content">
             <h1>{{ title }}</h1>
-            <h2>{{ contant }}</h2>
+            <div v-html="contant"></div>
         </div>
     </diV>
     

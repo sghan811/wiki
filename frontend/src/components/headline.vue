@@ -92,6 +92,7 @@
   }
   .main-title {
     width: 100%;
+    font-size: 4rem;
     margin-bottom: 0;
   }
   .headline > div {
@@ -108,15 +109,17 @@
     border-top: none;
     padding-top: 0;
   }
-  
+
   .main-post {
     flex-direction: row;
     flex-wrap: nowrap;
   }
-  
+  p {
+    font-size: auto;
+  }
   .main-post img {
     margin-left: auto;
-    border-radius: 30px;
+    border-radius: 0px 25px 0px 25px;
     width: 250px;
   }
   
@@ -141,6 +144,9 @@
     margin-bottom: 0;
   }
   @media only screen and (max-width: 500px) {
+    .main-title{
+      font-size: 2rem;
+    }
   .posts {
     padding: 80px 5%;
   }
@@ -150,7 +156,7 @@
     width: 30%;
   }
   .head img{
-    width: 100px;
+    width: 150px;
   }
   .main-post{
     width: 100vw;

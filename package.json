@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "backend": "cd ./backend && npm start",
-    "frontend":"cd ./frontend && yarn serve",
+    "frontend": "cd ./frontend && yarn serve",
     "backend-build": "cd ./backend && npm i",
     "frontend-build": "cd ./frontend && yarn install",
     "setting": "npm i &&concurrently \"npm run backend-build\"  \"npm run frontend-build\"",
@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/sghan811/wiki#readme",
   "dependencies": {
-    "concurrently": "^7.6.0"
+    "aws-sdk": "^2.1295.0",
+    "concurrently": "^7.6.0",
+    "multer": "^1.4.5-lts.1"
   }
 }

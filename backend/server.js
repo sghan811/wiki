@@ -8,6 +8,9 @@ const session = require('express-session');
 const passport = require('passport');
 const cors = require('cors');
 const helmet = require('helmet')
+const {uploadToStorage} = require("./api/v1/img/uploadToStorage")
+const multer = require('multer')
+let upload = multer({ dest: 'public/uploads/' })
 const corsOptions = {
     Credential: "true",
 };
@@ -21,6 +24,7 @@ app.use(express.json());
 app.options("*", cors(corsOptions));
 app.use(cors(corsOptions));
 app.use(cookieParser())
+
 app.use(session({
   secret: process.env.SECRET_KEY,
   resave: false,
@@ -29,7 +33,11 @@ app.use(session({
 }))
 app.use(passport.initialize())
 app.use(passport.session())
-
+app.post('/upload', upload.single('image'), (req, res) => {
+    uploadToStorage(req.file).then( (response) => {
+      res.send(response.Location)
+    }).catch(err=>console.log(err))
+})
 app.use((req, res, next) => {
     res.locals.data = {}
     next()

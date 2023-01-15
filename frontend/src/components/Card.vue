@@ -8,7 +8,7 @@
   </div> -->
   <div class="post">
     <div class="texts">
-      <span class="timestamp">{{ uptime}}</span>
+      <span class="timestamp">{{yyyyMMdd(uptime)}}</span>
       <h2>{{ title }}</h2>
       <p>{{ sub }}</p>
       <router-link :to="'/detail/?id='+this.id">더 알아보기</router-link>
@@ -39,8 +39,33 @@ export default {
         path:'./detail',
         query: this.id
       })
+    },
+    yyyyMMdd(value){
+      if(value == '') return '';
+      console.log(value)
+      // 현재 Date 혹은 DateTime 데이터를 javaScript date 타입화
+
+      var js_date = new Date(value*1);
+
+      console.log(js_date)
+      // 연도, 월, 일 추출
+      var year = js_date.getFullYear();
+      var month = js_date.getMonth() + 1;
+      var day = js_date.getDate();
+
+      // 월, 일의 경우 한자리 수 값이 있기 때문에 공백에 0 처리
+      if(month < 10){
+        month = '0' + month;
+      }
+
+      if(day < 10){
+        day = '0' + day;
+      }
+
+      // 최종 포맷 (ex - '2021-10-08')
+      return year + '-' + month + '-' + day;      
     }
-  }
+  },
 }
 </script>
 
@@ -90,7 +115,7 @@ export default {
 
 .post img {
   margin-left: auto;
-  border-radius: 30px;
+  border-radius: 0px 25px 0px 25px;
   width: 250px;
 }
 
@@ -120,7 +145,7 @@ export default {
   }
   .post img {
     margin-left: auto;
-    border-radius: 30px;
+    border-radius: 0px 25px 0px 25px;
     width: 50%;
   }
 }

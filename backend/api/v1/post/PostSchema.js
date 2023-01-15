@@ -6,8 +6,6 @@ module.exports = [
     }, {
       key: 'title',
       type: 'string',
-      regexp: /^\S*$/,
-      regexpMessage: 'title cannot have spaces'
     }, {
       key: 'sub',
       type: 'string'
@@ -24,6 +22,9 @@ module.exports = [
       key: 'uptime',
       type: 'string',
       optional: true
+    }, {
+      key: 'category',
+      type: 'string',
     }
   ]
   
