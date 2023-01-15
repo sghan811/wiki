@@ -8,9 +8,9 @@
     "backend": "cd ./backend && npm start",
     "frontend": "cd ./frontend && yarn serve",
     "backend-build": "cd ./backend && npm i",
-    "frontend-build": "cd ./frontend && yarn install",
+    "frontend-build": "cd ./frontend && yarn build",
     "setting": "npm i &&concurrently \"npm run backend-build\"  \"npm run frontend-build\"",
-    "dev": "concurrently \"npm run backend\"  \"npm run frontend\""
+    "start": "concurrently \"npm run backend\"  \"npm run frontend\""
   },
   "repository": {
     "type": "git",
