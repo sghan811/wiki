@@ -11,7 +11,7 @@ import issuespage from '@/views/issues'
 const routes = [
   {
     path: '/',
-    component: PageHome
+    component: PageHome,
   },
   {
     path: '/detail',

@@ -5,12 +5,13 @@
 
 <script>
 import Nav from './components/Nav.vue'
+import router from './vue-routers';
 
 export default {
   name: 'App',
   components: {
     Nav
-  }
+  },
 }
 </script>
 

@@ -37,6 +37,7 @@
   import Card from '../components/Card.vue'
   import headline from '../components/headline.vue'
   import axios from 'axios'
+  
   export default {
     name: 'news',
     components: {

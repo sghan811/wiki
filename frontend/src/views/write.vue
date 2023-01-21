@@ -17,29 +17,17 @@
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td><textarea v-model="contant" ref="contant"></textarea></td>
+						<td>
+							<div class="editor" v-if="editor">
+								<menu-bar class="editor_header" :editor="editor"></menu-bar>
+								<editor-content class="editor_content" :editor="editor"></editor-content>
+							</div>
+						</td>
 					</tr>
                     <tr>
 						<th>이미지 링크</th>
 						<td><textarea v-model="img" ref="img"></textarea></td>
 					</tr>
-					<div class="w-32 h-32 border-2 border-dotted border-blue-500">
-						<div v-if="images"
-							class="w-full h-full flex items-center">
-							<img :src="images" alt="image">
-						</div>
-						<div v-else
-							class="w-full h-full flex items-center justify-center cursor-pointer hover:bg-pink-100"
-							@click="clickInputTag()">
-							<input ref="image" id="input"
-									type="file" name="image" accept="image/*" multiple="multiple"
-									class="hidden"
-									@change="uploadImage()">
-							<svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-							</svg>
-						</div>
-					</div>
 					<select v-model="category" ref="category">
 						<option v-for="list in  categoryList" :value="list.value">{{ list.text }}</option>
 					</select>
@@ -59,9 +47,16 @@
 
 import { exportDefaultSpecifier } from '@babel/types';
 import axios from 'axios';
+import MenuBar from '../components/MenuBar.vue'
+import Highlight from '@tiptap/extension-highlight'
+import TaskItem from '@tiptap/extension-task-item'
+import TaskList from '@tiptap/extension-task-list'
+import StarterKit from '@tiptap/starter-kit'
+import { Editor, EditorContent } from '@tiptap/vue-3'
 import Nav from '../components/Nav.vue';
 import Card from '../components/Card.vue';
 import preview from '../components/preview.vue';
+import * as Y from 'yjs'
 
 export default {
     name: 'Post',
@@ -69,9 +64,12 @@ export default {
         Nav,
 		Card,
 		preview,
+		EditorContent,
+		MenuBar,
     },
     data() {
         return {
+			editor: null,
 			categoryList:[
 				{
 					text:"카테고리 선택",
@@ -103,7 +101,15 @@ export default {
         };
     },
     mounted() {
-
+		this.editor = new Editor({
+			extensions: [
+				StarterKit,
+				Highlight,
+				TaskList,
+				TaskItem
+			]
+		})
+		
     },
     methods: {
         fnList(){ //리스트 화면으로 이동 함수
@@ -116,6 +122,11 @@ export default {
 				this.$refs.title.focus(); //방식으로 선택자를 찾는다.
 				return;
 			}
+			if(this.category == '0') {
+				alert("카테고리를 입력해 주세요");
+				return;
+			}
+			this.contant = this.editor.getHTML()
             this.user = (await axios.get('/api/v1/user/')).data.user.username
             console.log(this.user)
 			this.form = { //backend로 전송될 POST 데이터
@@ -162,6 +173,30 @@ export default {
 </script>
 
 <style>
+	.editor_content {
+		padding: 1.25rem 1rem;
+    	flex: 1 1 auto;
+    	overflow-x: hidden;
+    	overflow-y: auto;
+    	-webkit-overflow-scrolling: touch;
+	}
+	.editor_header {
+		display: flex;
+    	align-items: center;
+    	flex: 0 0 auto;
+    	flex-wrap: wrap;
+    	padding: 0.25rem;
+    	border-bottom: 3px solid #0D0D0D;
+	}
+	.editor {
+		display: flex;
+ 		flex-direction: column;
+  		max-height: 26rem;
+  		color: #0D0D0D;
+  		background-color: #FFF;
+  		border: 3px solid #0D0D0D;
+  		border-radius: 0.75rem;
+	}
 	.preview{
 		padding-top: 50px;
 		padding-bottom: 50px;
@@ -190,4 +225,7 @@ export default {
 	.btnWrap a{margin:0 10px;}
 	.btnAdd {background:#43b984}
 	.btnDelete{background:#f00;}
+	.ProseMirror {
+		outline: none;
+	}
 </style>
