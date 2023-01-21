@@ -13,6 +13,7 @@ const {
 } = require('./middlewares')
 const userRouter = express.Router()
 
+//라우터 설정
 userRouter.get('/', shouldBeLoggedIn, dash, send)
 userRouter.get('/verify', verify, send)
 userRouter.get('/logout', shouldBeLoggedIn, logout, send)

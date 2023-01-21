@@ -6,9 +6,10 @@ const options = {
   }
 }
 
-const pgp = require('pg-promise')(options)
+const pgp = require('pg-promise')(options) //모듈 불러오기
 
 function setDatabase() {
+  //DB 로그인
   if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
     return pgp({
       database: process.env.DB,

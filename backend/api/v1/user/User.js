@@ -2,6 +2,8 @@ const db = require('../../../db/config')
 const { modelUtils, modelStatics } = require('../utils')
 const schema = require('./UserSchema')
 
+
+//User 내용 정하는 코드
 function User({ id = null, username, password_digest, email }) {
   this.id = this._validate(id, 'id')
   this.username = this._validate(username, 'username')
@@ -9,6 +11,8 @@ function User({ id = null, username, password_digest, email }) {
   this.email = this._validate(email, 'email')
 }
 
+
+//users table 내용 불러오기 (안쓰임)
 const userStatics = modelStatics(db, 'users')
 userStatics.findByUserName = (username) => {
   return db.one(`
@@ -17,6 +21,8 @@ userStatics.findByUserName = (username) => {
     ORDER BY id ASC
   `, username)
 }
+
+//users 테이블 schema 불러오기
 Object.setPrototypeOf(User, userStatics)
 User.prototype = Object.assign(User.prototype, modelUtils(schema))
 
@@ -28,7 +34,7 @@ User.prototype.save = function() {
       $/username/, $/email/, $/password_digest/
     )
     RETURNING *
-  `, this)
+  `, this) //회원가입 코드
   .then(user => this._modify(user))
 }
 

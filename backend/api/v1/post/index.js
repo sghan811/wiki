@@ -15,7 +15,7 @@ const {
 } = require('./middlewares')
 const postRouter = express.Router();
 
-postRouter.post('/upload', post_upload, create, send);
+postRouter.post('/upload', post_upload, create, send); //라우터를 정하는 코드
 
 postRouter.get('/', post_load, index_load, send);
 

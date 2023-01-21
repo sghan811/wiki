@@ -27,7 +27,6 @@
 
 <script>
 import axios from 'axios'
-
 export default {
   name: 'Nav',
   data() {
@@ -46,11 +45,11 @@ export default {
     },
     async verify() {
       if((await axios.get("/api/v1/user/verify")).data.isAuth){
-        this.isHidden = true
+        this.$set(this.isHidden, true);
         console.log(this.isHidden)
 
       }else{
-        this.isHidden = false
+        this.$set(this.isHidden, false);
         console.log(this.isHidden)
       }
     }

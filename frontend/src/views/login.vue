@@ -21,8 +21,12 @@
 
 <script>
 import axios from 'axios';
+import Nav from '../components/Nav.vue';
 
 export default {
+  components: {
+    Nav
+  },
   data() {
     return {
       userId: null,
@@ -57,6 +61,7 @@ export default {
                  path: "/",
                  query: this.isHidden
               })
+              component('Nav').verify();
             }
           });
       } catch (error) {
