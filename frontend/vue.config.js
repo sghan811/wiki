@@ -1,4 +1,5 @@
 const { defineConfig } = require('@vue/cli-service')
+var astore = require('./src/vuex/store')
 module.exports = defineConfig({
   transpileDependencies: true,
   lintOnSave: false,
@@ -9,5 +10,5 @@ module.exports = defineConfig({
         changeOrigin: true
       }
     }
-  }
+  },
 })

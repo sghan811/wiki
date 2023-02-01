@@ -22,6 +22,7 @@
 <script>
 import axios from 'axios';
 import Nav from '../components/Nav.vue';
+import store from '../vuex/store'
 
 export default {
   components: {
@@ -57,11 +58,12 @@ export default {
           })
           .then((res) => {
             if (res.status === 200) {
+              console.log(Object.getOwnPropertyNames(this.$parent))
+              store.state.isLogin = true
               this.$router.push({
                  path: "/",
                  query: this.isHidden
               })
-              component('Nav').verify();
             }
           });
       } catch (error) {

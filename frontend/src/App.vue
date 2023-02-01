@@ -1,5 +1,5 @@
 <template>
-  <Nav />
+  <Nav ref="Nav"/>
   <RouterView></RouterView>
 </template>
 
@@ -11,6 +11,11 @@ export default {
   name: 'App',
   components: {
     Nav
+  },
+  methods: {
+    login() {
+      this.$refs.Nav.verify();
+    }
   }
 }
 </script>

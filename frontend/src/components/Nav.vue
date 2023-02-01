@@ -1,10 +1,10 @@
 <template>
   <header>
-    <div class="title" :key="isHidden">
+    <div class="title" @login="verify()">
       <router-link to="/" class="main">Discord Wiki</router-link>  
-      <router-link v-if:="!isHidden" to="/login" class="login-button" >login</router-link>
-      <router-link v-if:="isHidden" to="/write" class="login-button2" >글 작성</router-link>
-      <router-link @click="logout()" v-if:="isHidden" to="/" class="login-button">logout</router-link>
+      <router-link v-if:="!this.$store.state.isLogin" to="/login" class="login-button" >login</router-link>
+      <router-link v-if:="this.$store.state.isLogin" to="/write" class="login-button2" >글 작성</router-link>
+      <router-link @click="logout()" v-if:="this.$store.state.isLogin" to="/" class="login-button">logout</router-link>
     </div>
     
     <div class="container-fluid">
@@ -27,29 +27,33 @@
 
 <script>
 import axios from 'axios'
+import store from '../vuex/store'
 export default {
   name: 'Nav',
   data() {
     return {
-      isHidden: this.$route.query
+      isHidden: store.state.isLogin,
     }
   }, 
   
   mounted() {
     this.verify()
+    console.log(this.$store.state.isLogin)
   },
   methods: {
     logout() {
       this.isHidden = false
+      this.$store.state.isLogin = false
       axios.get("/api/v1/user/logout")
     },
     async verify() {
       if((await axios.get("/api/v1/user/verify")).data.isAuth){
         this.$set(this.isHidden, true);
+        store.state.isLogin = true
         console.log(this.isHidden)
-
       }else{
         this.$set(this.isHidden, false);
+        store.state.isLogin = false
         console.log(this.isHidden)
       }
     }
