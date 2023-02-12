@@ -1,7 +1,7 @@
-import {createStore} from "vuex"
+const {createStore} = require("vuex")
 
 
-export default createStore({
+module.exports = createStore({
   state: {
     isLogin: true,
   },
