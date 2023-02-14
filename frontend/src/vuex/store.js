@@ -3,6 +3,6 @@ const {createStore} = require("vuex")
 
 module.exports = createStore({
   state: {
-    isLogin: true,
+    isLogin: false,
   },
 })
