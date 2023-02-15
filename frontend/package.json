@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "scripts": {
-    "serve": "export PORT=80 && vue-cli-service serve",
+    "serve": "vue-cli-service serve --port 80",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
