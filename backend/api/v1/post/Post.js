@@ -43,7 +43,7 @@ Post.prototype.save = function() {
 }
 
 function I_load() {
-    const posts = db.query(`SELECT * FROM posts LIMIT 20;`) //posts 테이블에 20개의 값을 불러온다
+    const posts = db.query(`SELECT * FROM posts ORDER BY id DESC LIMIT 20;`) //posts 테이블에 20개의 값을 불러온다
     return posts
 }
 function vPost(req) {
