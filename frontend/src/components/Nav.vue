@@ -32,10 +32,8 @@ export default {
   name: 'Nav',
   data() {
     return {
-      isHidden: store.state.isLogin,
     }
   }, 
-  
   mounted() {
     this.verify()
     console.log(this.$store.state.isLogin)
@@ -48,13 +46,9 @@ export default {
     },
     async verify() {
       if((await axios.get("/api/v1/user/verify")).data.isAuth){
-        this.$set(this.isHidden, true);
         store.state.isLogin = true
-        console.log(this.isHidden)
       }else{
-        this.$set(this.isHidden, false);
         store.state.isLogin = false
-        console.log(this.isHidden)
       }
     }
   }
