@@ -3,6 +3,7 @@ var astore = require('./src/vuex/store')
 module.exports = defineConfig({
   transpileDependencies: true,
   lintOnSave: false,
+  disableHostCheck: true,
   devServer: {
     proxy: {
       '/api': {
