@@ -4,11 +4,11 @@ const schema = require('./UserSchema')
 
 
 //User 내용 정하는 코드
-function User({ id = null, username, password_digest, email }) {
+function User({ id = null, username, password_digest, nickname }) {
   this.id = this._validate(id, 'id')
   this.username = this._validate(username, 'username')
   this.password_digest = this._validate(password_digest, 'password_digest')
-  this.email = this._validate(email, 'email')
+  this.nickname = this._validate(nickname, 'nickname')
 }
 
 
@@ -29,9 +29,9 @@ User.prototype = Object.assign(User.prototype, modelUtils(schema))
 User.prototype.save = function() {
   return db.one(`
     INSERT INTO users (
-      username, email, password_digest
+      username, nickname, password_digest
     ) VALUES (
-      $/username/, $/email/, $/password_digest/
+      $/username/, $/nickname/, $/password_digest/
     )
     RETURNING *
   `, this) //회원가입 코드

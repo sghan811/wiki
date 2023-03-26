@@ -4,6 +4,8 @@ module.exports = {
     create: (req, res, next) => {
         const post = req.body //포스트 내용 받아오기
         const user = req.user.username
+        const nickname = req.user.nickname
+        console.log(nickname)
         var in_data = true
         var category_list = ["news","test","servers","events","issues"]; // 카테고리 종류
         if(category_list.indexOf(post.category) < 0){ //포스트에서 정해진 카테고리 종류가 존재하는지 확인
@@ -15,7 +17,7 @@ module.exports = {
             try {
                 //Post 정하는 코드
                 new Post({
-                    uploader: user,
+                    uploader: nickname,
                     ...post
                 })
                 .save() //Post 업로드

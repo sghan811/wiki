@@ -133,9 +133,9 @@ export default {
 				title:this.title
 				,sub:this.sub
 				,contant:this.contant
-				,uploader:this.user
+				,uploader:this.nickname
                 ,img:this.img
-				,category:this.category
+				, category: this.category
 			} 
 			console.log(this.form)
 			axios.post('/api/v1/post/upload',this.form)

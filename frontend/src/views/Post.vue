@@ -2,6 +2,7 @@
     <diV class="post">
         <div class="content">
             <h1>{{ title }}</h1>
+            <h4>작성자:{{ uploader }}</h4>
             <div v-html="contant"></div>
         </div>
     </diV>
@@ -25,7 +26,7 @@ export default {
             sub: '',
             contant: '',
             uploader: '',
-            uptime: ''
+            uptime: '',
         };
     },
     mounted() {

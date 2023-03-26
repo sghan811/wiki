@@ -12,9 +12,7 @@ module.exports = [
     key: 'password_digest',
     type: 'string'
   }, {
-    key: 'email',
+    key: 'nickname',
     type: 'string',
-    regexp: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    regexpMessage: 'Email is not valid'
   }
 ]

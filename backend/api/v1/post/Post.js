@@ -12,7 +12,7 @@ function Post({id=null, title, contant, img, uploader, sub, uptime, category}){
     this.contant = this._validate(contant, 'contant');
     this.img = this._validate(img, 'img');
     this.uploader = this._validate(uploader, 'uploader');
-    this.category = this._validate(category, 'category')
+    this.category = this._validate(category, 'category');
 }
 
 //posts 값 받아오기 (안쓰임 그래도 지우면 에러남)
